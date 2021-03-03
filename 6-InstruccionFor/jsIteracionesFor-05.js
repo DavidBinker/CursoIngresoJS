@@ -1,7 +1,16 @@
+/*BINKER David
+Enunciado:
+al presionar el botón repetir el pedido de número hasta que ingresemos el 9*/
 function mostrar()
 {
-	alert("ok");
+	let numeroIngresado;
 
+	numeroIngresado = prompt ("Ingrese numero");
+	numeroIngresado = parseInt(numeroIngresado);
 
-
-}//FIN DE LA FUNCIÓN
+	for(; numeroIngresado !=9;)
+	{
+		numeroIngresado = prompt ("Ingrese numero");
+		numeroIngresado = parseInt(numeroIngresado);		
+	}
+}

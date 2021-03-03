@@ -1,18 +1,39 @@
-/*
-Al presionar el botón pedir  números  hasta que el USUARIO QUIERA 
-e informar la suma acumulada y el promedio.
-*/
+//Binker David
 function mostrar()
 {
-	var contador;
-	var acumulador;
-	var respuesta;
+	let contador;
+	let acumulador;
+	let numeroIngresado;
+	let promedio;
+	let respuesta
+
+
 	contador=0;
 	acumulador=0;
-	respuesta='si';
+	respuesta="si";
 
+	while(respuesta == "si" || respuesta == "Si")
+	{
+		contador=contador+1
 
-	txtIdSuma.value=acumulador;
-	txtIdPromedio.value=acumulador/contador;
+		numeroIngresado = prompt("Ingrese numero #" +contador + ": ");
+		numeroIngresado = parseInt(numeroIngresado);
+
+		while(isNaN(numeroIngresado)==true)
+		{
+			numeroIngresado = prompt("Error, vuelva a ingresar numero: ");
+			numeroIngresado = parseInt(numeroIngresado)
+		}
+
+		acumulador = acumulador+numeroIngresado
+
+		respuesta = prompt("¿Desea ingresar otro numero? Si para continuar")
+	}
+	
+	promedio = acumulador / contador;
+
+	document.getElementById("txtIdSuma").value = acumulador;
+
+	document.getElementById("txtIdPromedio").value = promedio;
 
 }//FIN DE LA FUNCIÓN

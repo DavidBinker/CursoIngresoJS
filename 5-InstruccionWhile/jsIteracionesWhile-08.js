@@ -1,19 +1,67 @@
-/*
-Al presionar el botón pedir  números  hasta que el usuario quiera,
-sumar los que son positivos y multiplicar los negativos.*/
+//Binker David
 function mostrar()
 {
-	var contador;
-	var respuesta;
-	var sumaPositivos;
-	var multiplicacionNegativos;
+	let contador;
+	let contadorDeNegativos;
+	let acumulador;
+	let numeroIngresado;
+	let respuesta;
+	let multiplicador;
+
+
+	contadorDeNegativos=0;
 	contador=0;
-	sumaPositivos=0;
-	multiplicacionNegativos=1;
-	respuesta='si';
+	contador2=0;
+	acumulador=0;
+	multiplicador=1;
+	respuesta="si";
 
+	while(respuesta == "si" || respuesta == "Si")
+	{
+		contador=contador+1;
 
-	txtIdSuma.value=sumaPositivos;
-	txtIdProducto.value=multiplicacionNegativos;
+		numeroIngresado = prompt("Ingrese numero #" +contador + ": ");
+		numeroIngresado = parseInt(numeroIngresado);
 
-}//FIN DE LA FUNCIÓN
+		while(isNaN(numeroIngresado)==true)
+		{
+			numeroIngresado = prompt("Error, vuelva a ingresar numero: ");
+			numeroIngresado = parseInt(numeroIngresado)
+		}
+
+		/*Evalúo si es negativo o positivo, y cuento cantidad de negativos
+		ingresados*/
+		if (numeroIngresado < 0)
+		{
+			contadorDeNegativos = contadorDeNegativos+1;
+
+			multiplicador = multiplicador * numeroIngresado;
+
+		}
+
+		else
+		{
+			acumulador = acumulador+numeroIngresado;
+
+		}
+
+		respuesta = prompt("¿Desea ingresar otro numero? Si para continuar");
+	}
+	
+
+	document.getElementById("txtIdSuma").value = acumulador;
+
+	/*si no se ingresó ningún negativo, cargo 0 en "Producto"
+	(de otra manera, llegaría con el 1 por defecto de Multiplicador)*/
+	if (contadorDeNegativos == 0)
+	{
+		document.getElementById("txtIdProducto").value = 0;
+
+	}
+	else
+	{
+		document.getElementById("txtIdProducto").value = multiplicador;
+
+	}
+}
+//FIN DE LA FUNCIÓN

@@ -1,4 +1,10 @@
+//Binker David
 function mostrar()
 {
-	alert("ok");
+	let contador;
+
+	for(contador = 1; contador < 11; contador++)
+	{
+		console.log(contador);
+	}
 }
